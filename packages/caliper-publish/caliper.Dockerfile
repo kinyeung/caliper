@@ -30,7 +30,7 @@ WORKDIR /hyperledger/caliper/workspace
 # 3. install Caliper globally (also install the core package, so it's bumped to the global root directory, so external modules can access it)
 RUN mkdir /home/node/.npm-global \
     && npm config set prefix '/home/node/.npm-global' \
-    && npm install ${npm_registry} -g --only=prod @hyperledger/caliper-core@${caliper_version} @hyperledger/caliper-cli@${caliper_version}
+    && npm install --registry=https://registry.npm.taobao.org -g --only=prod @hyperledger/caliper-core@0.4.1 @hyperledger/caliper-cli@0.4.1
 
 # Set NODE_PATH to the global install directory, so the global Caliper core module can be required by external modules
 # https://nodejs.org/docs/latest-v10.x/api/modules.html#modules_loading_from_the_global_folders
